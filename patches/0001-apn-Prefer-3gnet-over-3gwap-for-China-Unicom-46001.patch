@@ -1,0 +1,45 @@
+From aaa27a8aafc2c6843f79b448194296a49b34ce7f Mon Sep 17 00:00:00 2001
+From: q2wip <q2inrus@gmail.com>
+Date: Thu, 12 Nov 2026 18:54:44 +0800
+Subject: [PATCH] apn: Prefer 3gnet over 3gwap for China Unicom (46001)
+
+3gwap only allows traffic through the WAP proxy (10.0.0.172:80) and provides no DNS, so mobile data looks connected but no app can use it. Put the 3gnet entry first so it becomes the default APN.
+
+Change-Id: I8ab550ac641251d5dc431a265207e33ef3a01d5e
+---
+ upstream/apns-conf.xml | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/upstream/apns-conf.xml b/upstream/apns-conf.xml
+index 459e4a6..6d98780 100644
+--- a/upstream/apns-conf.xml
++++ b/upstream/apns-conf.xml
+@@ -68849,19 +68849,19 @@
+     <apn
+         mcc="460"
+         mnc="01"
+-        carrier="沃3G手机上网 (China Unicom)"
+-        apn="3gwap"
++        carrier="沃3G连接互联网 (China Unicom)"
++        apn="3gnet"
+         carrier_id="1436"
+-        port="80"
+-        proxy="10.0.0.172"
+         type="default,supl"
+     />
+     <apn
+         mcc="460"
+         mnc="01"
+-        carrier="沃3G连接互联网 (China Unicom)"
+-        apn="3gnet"
++        carrier="沃3G手机上网 (China Unicom)"
++        apn="3gwap"
+         carrier_id="1436"
++        port="80"
++        proxy="10.0.0.172"
+         type="default,supl"
+     />
+     <apn
+-- 
+2.53.0
+
