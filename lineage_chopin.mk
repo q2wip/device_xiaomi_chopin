@@ -6,6 +6,9 @@
 # Inherit from device makefile.
 $(call inherit-product, device/xiaomi/chopin/device.mk)
 
+# Face unlock (Paranoid Sense / AOSPA)
+TARGET_FACE_UNLOCK_SUPPORTED := true
+
 # Inherit LineageOS product
 TARGET_DISABLE_EPPE := true
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
