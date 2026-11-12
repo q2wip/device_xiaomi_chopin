@@ -13,4 +13,11 @@
 
     <!-- the padding on the end of the statusbar -->
     <dimen name="status_bar_padding_end">5dp</dimen>
+
+    <!-- Center of the side-mounted fingerprint sensor (power button), used as
+         the origin of the fingerprint authentication ripple. Matches
+         persist.vendor.fingerprint.sensor_location=1080|999|145|local:0:
+         x = right edge, y = 999 (top) + 145 (radius). -->
+    <dimen name="physical_fingerprint_sensor_center_screen_location_x">1080px</dimen>
+    <dimen name="physical_fingerprint_sensor_center_screen_location_y">1144px</dimen>
 </resources>
